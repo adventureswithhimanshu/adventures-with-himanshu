@@ -416,6 +416,12 @@ footer{border-top:1px solid var(--line);padding-top:clamp(64px,8vw,100px);paddin
 .copy:hover{color:var(--gold);border-color:var(--gold)}
 .legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--faint)}
 .legal p{max-width:80ch}
+.legal a.credit{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.legal a.credit:hover{color:var(--mute);border-color:currentColor}
+.faq .ans table{width:100%;border-collapse:collapse;font-size:14px}
+.faq .ans td{padding:9px 12px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.faq .ans tr:last-child td{border-bottom:0}
+.faq .ans td:last-child{color:var(--paper);padding-right:0}
 
 /* ---------- floating WhatsApp ---------- */
 .fab{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:10px;padding:14px;border-radius:999px;background:#1f6f4a;color:#fff;box-shadow:0 14px 36px rgba(0,0,0,.45);transition:transform .5s var(--ease-out),padding .5s var(--ease)}
@@ -850,8 +856,8 @@ textarea.inp{min-height:96px;resize:vertical}
     <div class="f-media rise">
       <div class="f-frame" aria-hidden="true"></div>
       <div class="f-video no-video" id="videoWrap">
-        <video id="introVideo" loop playsinline preload="none" poster="images/video-poster.jpg" class="rounded-xl shadow-lg w-full object-cover">
-          <source src="videos/himanshu-intro-sm.mp4" type="video/mp4">
+        <video id="introVideo" loop playsinline preload="none" poster="images/video-poster-2.jpg" class="rounded-xl shadow-lg w-full object-cover">
+          <source src="videos/himanshu-intro-2.mp4" type="video/mp4">
         </video>
         <button type="button" class="v-play" id="vPlay" aria-label="Play Himanshu's intro video"><span class="v-play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="v-play-l">Meet Himanshu</span></button>
         <div class="v-soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M10 8.5l5.5 3.5-5.5 3.5z" fill="currentColor"/></svg><b>Intro video coming soon</b><span>A short hello from Himanshu</span></div>
@@ -960,7 +966,14 @@ textarea.inp{min-height:96px;resize:vertical}
       <details><summary>Why do some trips say "price on request"?<i></i></summary><div class="ans"><p>Fares depend on group size, dates and vehicle. Send an enquiry and Himanshu replies with an exact, all-inclusive quote, usually within a day.</p></div></details>
       <details><summary>Do you run private trips?<i></i></summary><div class="ans"><p>Yes. Couples, families and friend groups can book any route as a private departure on their own dates. Corporate offsites are welcome too.</p></div></details>
       <details><summary>How do I pay and confirm my booking?<i></i></summary><div class="ans"><p>Pay a <b>30% advance</b> to confirm your seats; the balance is due just before the trip starts. We accept <b>UPI and bank transfer only</b>, and every payment comes with a GST invoice from ADVENTURES WITH HIMANSHU.</p></div></details>
-      <details><summary>What is the cancellation policy?<i></i></summary><div class="ans"><p>Please send cancellations in writing on WhatsApp or email. How much of your advance is refunded depends on how close to departure you cancel; the exact terms are shared in writing with your quote. Bookings for <b>festive-season departures are non-refundable</b>, because stays and transport are paid for well in advance.</p></div></details>
+      <details><summary>What is the cancellation policy?<i></i></summary><div class="ans"><p>Please send cancellations in writing on WhatsApp or email. Refunds depend on how close to departure you cancel:</p>
+        <table><tbody>
+          <tr><td>30 days or more before departure</td><td>Full advance, minus ₹2,000 per person processing fee</td></tr>
+          <tr><td>15 to 29 days before</td><td>50% of the advance</td></tr>
+          <tr><td>7 to 14 days before</td><td>25% of the advance</td></tr>
+          <tr><td>Less than 7 days, or no-show</td><td>No refund</td></tr>
+        </tbody></table>
+        <p>Bookings for <b>festive-season departures are non-refundable</b>, because stays and transport are paid for well in advance. Refunds go back to the account you paid from.</p></div></details>
       <details><summary>Can I change my travel dates?<i></i></summary><div class="ans"><p>Yes, you can change your dates <b>once, free of charge</b>, subject to confirmation and the group size on the new departure.</p></div></details>
       <details><summary>Is there a minimum group size?<i></i></summary><div class="ans"><p>Group departures run with a minimum of <b>6 travellers</b> (Innova Crysta) or <b>10 travellers</b> (Force Traveller). If a departure doesn't reach the minimum, you can move to another date or take a full refund of what you've paid.</p></div></details>
       <details><summary>What if weather or landslides affect the trip?<i></i></summary><div class="ans"><p>Mountain weather and roads in the North-East can change quickly. If a route becomes unsafe or a permit area closes, we switch to the best safe alternative. Any extra cost, such as an added night, is discussed with you before it is spent.</p></div></details>
@@ -1030,7 +1043,7 @@ textarea.inp{min-height:96px;resize:vertical}
     </div>
     <div class="legal">
       <p id="legalText">Adventure travel involves inherent risks. Itineraries may change due to weather, road conditions or permit rules. Your details are used only to respond to your enquiry.</p>
-      <p>© <span id="yr">2026</span> ADVENTURES WITH HIMANSHU · GSTIN 19ACCFA7224N1Z4 · Some landscape photos via Unsplash</p>
+      <p>© <span id="yr">2026</span> ADVENTURES WITH HIMANSHU · GSTIN 19ACCFA7224N1Z4 · Some landscape photos via Unsplash · Website by <a class="credit" href="https://github.com/piyush1010" target="_blank" rel="noopener">Piyush Kaushik</a></p>
     </div>
   </div>
 </footer>
@@ -1783,7 +1796,7 @@ $("#copyMsg").addEventListener("click", e => copyText(lastMessage, e.currentTarg
 
 const LEGAL = {
   privacy:"Privacy: details you share in the enquiry form are sent only to Himanshu on WhatsApp or email and used only to reply to your enquiry.",
-  terms:"Terms & cancellation: a 30% advance confirms your booking and the balance is due just before the trip. Payments by UPI or bank transfer only. One free date change is allowed, subject to confirmation and group size. Festive-season bookings are non-refundable. Other refund terms are shared in writing with your quote.",
+  terms:"Terms & cancellation: a 30% advance confirms your booking and the balance is due just before the trip. Payments by UPI or bank transfer only. One free date change is allowed, subject to confirmation and group size. Refunds: full advance minus ₹2,000 per person 30+ days before departure, 50% of the advance at 15–29 days, 25% of the advance at 7–14 days, nothing under 7 days or for no-shows. Festive-season bookings are non-refundable.",
   risk:"Adventure risk: trekking, river activities and high-altitude travel carry inherent risks. Itineraries may change due to weather, landslides, road conditions or permit rules."
 };
 
