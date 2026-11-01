@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adventurewithhimanshu.netlify.app/sitemap.xml
+Sitemap: https://adventureswithhimanshu.in/sitemap.xml

@@ -2,7 +2,7 @@
 
 Website for **Adventures with Himanshu**, boutique small-group trips across Meghalaya, Arunachal Pradesh and Mizoram in North-East India.
 
-Live: https://adventurewithhimanshu.netlify.app
+Live: https://adventureswithhimanshu.in
 
 ## Credits
 
