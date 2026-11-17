@@ -776,10 +776,9 @@ textarea.inp{min-height:96px;resize:vertical}
   <div class="wrap founder">
     <div class="f-media rise">
       <div class="f-video" id="videoWrap">
-        <video id="introVideo" loop playsinline preload="none" poster="images/video-poster-2.jpg">
+        <video id="introVideo" muted loop playsinline preload="none" poster="images/video-poster-2.jpg" aria-label="Himanshu at a railway station">
           <source src="videos/himanshu-intro-2.mp4" type="video/mp4">
         </video>
-        <button type="button" class="v-play" id="vPlay" aria-label="Play Himanshu's intro video"><span class="v-play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="v-play-l">Meet Himanshu</span></button>
       </div>
     </div>
     <div>
@@ -1394,11 +1393,14 @@ function closeDrawer(){
    FOUNDER VIDEO
    ===================================================================== */
 (function introVideo(){
-  const v = $("#introVideo"), btn = $("#vPlay");
+  const v = $("#introVideo");
   if(!v) return;
-  /* Loads only when tapped, to save visitors' mobile data */
-  btn.addEventListener("click", () => { btn.hidden = true; v.controls = true; v.play().catch(()=>{ btn.hidden = false; }); });
-  v.addEventListener("play", () => { btn.hidden = true; });
+  v.muted = true;
+  /* Silent loop. Plays only while on screen, so it doesn't use data until the visitor scrolls to it */
+  if(!("IntersectionObserver" in window)){ v.preload = "auto"; v.play().catch(()=>{}); return; }
+  new IntersectionObserver(es => es.forEach(en => {
+    if(en.isIntersecting) v.play().catch(()=>{}); else v.pause();
+  }), {threshold:.25}).observe(v);
 })();
 
 /* =====================================================================
