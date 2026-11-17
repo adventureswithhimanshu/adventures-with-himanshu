@@ -161,10 +161,23 @@ p{margin:0}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ---------- expeditions ---------- */
-.trips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,4vw,64px) clamp(20px,3vw,48px)}
-.trip:nth-child(even){margin-top:clamp(0px,9vw,140px)}
-.trip{display:grid;gap:22px;min-width:0}
-.trip-media{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:4px;cursor:pointer;max-width:100%}
+.trips{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2*28px)/3);column-gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding-bottom:4px}
+.trips::-webkit-scrollbar{display:none}
+.trip{scroll-snap-align:start}
+.trip[hidden]{display:none}
+.t-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
+.t-bar .g-filter{margin:0}
+.t-nav{display:flex;gap:10px}
+.t-nav[hidden]{display:none}
+.t-nav .circ{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--paper);transition:border-color .3s,color .3s}
+.t-nav .circ svg{width:16px;height:16px}
+.t-nav .circ:not(:disabled):hover{border-color:var(--gold);color:var(--gold)}
+.t-nav .circ:disabled{opacity:.3;cursor:default}
+.ig-ic{width:17px;height:17px;flex:none}
+.ig-link{display:inline-flex;align-items:center;gap:8px}
+section.sec[id]{scroll-margin-top:calc(96px - clamp(88px,12vw,168px))}
+.trip{display:flex;flex-direction:column;gap:18px;min-width:0}
+.trip-media{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;cursor:pointer;max-width:100%}
 .trip-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease-out),filter .8s}
 .trip-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,25,.35),transparent 30%,transparent 60%,rgba(15,20,25,.75))}
 .trip:hover .trip-media img{transform:scale(1.06)}
@@ -177,7 +190,7 @@ p{margin:0}
 .trip-open svg{width:18px;height:18px}
 .trip:hover .trip-open{transform:scale(1);background:var(--gold)}
 .trip-region{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
-.trip h3{font-size:clamp(1.9rem,3vw,2.6rem);font-weight:400;margin-top:8px}
+.trip h3{font-size:clamp(1.6rem,2.2vw,2rem);font-weight:400;margin-top:6px}
 .trip h3 a{background:linear-gradient(var(--gold),var(--gold)) no-repeat 0 100%/0 1px;transition:background-size .6s var(--ease)}
 .trip h3 a:hover{background-size:100% 1px}
 .trip-kicker{color:var(--mute);margin-top:10px;max-width:46ch;font-size:15.5px}
@@ -197,8 +210,9 @@ p{margin:0}
 .hl{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .hl li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--paper);font-size:15px}
 .hl li::before{content:"";width:18px;height:18px;margin-top:3px;border-radius:50%;background:rgba(212,163,115,.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A373' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat}
-.trip-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.custom-card{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,64px);align-items:center;padding:clamp(28px,5vw,64px);border:1px solid var(--line);border-radius:4px;background:
+.trip-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+.trip-actions .btn{padding:14px 16px;width:100%}
+.custom-card{margin-top:clamp(28px,4vw,48px)!important;display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,64px);align-items:center;padding:clamp(28px,5vw,64px);border:1px solid var(--line);border-radius:4px;background:
   radial-gradient(80% 120% at 100% 0%,rgba(212,163,115,.12),transparent 60%),var(--ink-2);margin-top:clamp(0px,4vw,40px)}
 .custom-card h3{font-size:clamp(2rem,3.6vw,3.2rem);font-weight:300}
 .custom-card h3 em{font-style:italic;color:var(--gold)}
@@ -548,15 +562,14 @@ textarea.inp{min-height:96px;resize:vertical}
   .burger{display:grid}
 }
 @media (max-width:1080px){
+  .trips{grid-auto-columns:calc((100% - 28px)/2)}
   .nav-links{display:none}
   .nav-in>.btn{display:none}
   .burger{display:grid}
   .f-cols{grid-template-columns:1fr 1fr}
 }
 @media (max-width:860px){
-  .trips{grid-template-columns:minmax(0,1fr)}
-  .trip:nth-child(even){margin-top:0}
-  .trip-media{aspect-ratio:4/3.4}
+  .trips{grid-auto-columns:calc((100% - 20px)/2);column-gap:20px}
   .custom-card{grid-template-columns:minmax(0,1fr)}
   .custom-card .btns{justify-content:flex-start}
   .why,.founder,.regions,.reviews,.faq-grid{grid-template-columns:minmax(0,1fr)}
@@ -662,9 +675,11 @@ textarea.inp{min-height:96px;resize:vertical}
   .seal{width:42px;height:42px}
   .trip-coord{display:none}
   .trip .route,.trip .t-season,.trip .hl{display:none}
-  .trip-media{aspect-ratio:4/3}
-  .trip{gap:16px}
-  .trip-actions{justify-content:space-between}
+  .trips{grid-auto-columns:86%;column-gap:14px;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);scroll-padding-inline:var(--gutter)}
+  .trip{gap:14px}
+  .t-nav{display:none}
+  .t-bar .g-filter{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);width:calc(100% + 2*var(--gutter))}
+  .t-bar .g-filter button{flex:none}
   .trip-actions .link-arrow,.link-arrow{min-height:44px}
   .dot{height:44px}
   .f-cols li a,.f-cols li button{display:inline-block;padding-block:7px}
@@ -701,7 +716,7 @@ textarea.inp{min-height:96px;resize:vertical}
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="nav-in">
-    <a href="#top" class="brand" aria-label="Adventures with Himanshu, home">
+    <a href="/" class="brand" data-home aria-label="Adventures with Himanshu, home">
       <img class="seal" src="brand/logo-96.png" width="48" height="48" alt="">
       <span class="brand-word">Adventures with Himanshu<small>Trips across North-East India</small></span>
     </a>
@@ -752,9 +767,25 @@ textarea.inp{min-height:96px;resize:vertical}
   <div class="wrap">
     <div class="sec-head rise">
       <h2 class="sec-title">Trips</h2>
-      <p class="lede">Six trips, each one planned by Himanshu: three in Meghalaya, two in Arunachal Pradesh and one in Mizoram. Open any trip to see how the days go, what's included and the fares.</p>
+      <p class="lede">Six trips, each one planned by Himanshu: three in Meghalaya, two in Arunachal Pradesh and one in Mizoram. Pick a state, then swipe or use the arrows to browse.</p>
+    </div>
+    <div class="t-bar">
+      <div class="g-filter pick" id="tFilter" role="group" aria-label="Filter trips by state"></div>
+      <div class="t-nav">
+        <button class="circ" id="tPrev" type="button" aria-label="Previous trips"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M15 8H2M7 3L2 8l5 5"/></svg></button>
+        <button class="circ" id="tNext" type="button" aria-label="More trips"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
+      </div>
     </div>
     <div class="trips" id="trips"></div>
+    <div class="custom-card">
+      <div>
+        <h3>Travelling with your own group?</h3>
+        <p>Any of these trips can run just for you, whether you're a couple, a family, a group of friends or a team from work. Or tell Himanshu what you have in mind and he'll shape a route around it.</p>
+      </div>
+      <div class="btns">
+        <button class="btn btn-gold" type="button" data-open-modal="custom">Plan a private trip <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -789,7 +820,7 @@ textarea.inp{min-height:96px;resize:vertical}
         <p>He takes care of the stays, vehicles and permits, so you can simply enjoy the trip. And if the weather or roads change the plan, he's just a call away.</p>
       </div>
       <div class="sign">
-        <a class="link-arrow" href="https://www.instagram.com/adventurewithhimanshu/" target="_blank" rel="noopener">@adventurewithhimanshu on Instagram <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+        <a class="link-arrow" href="https://www.instagram.com/adventurewithhimanshu/" target="_blank" rel="noopener"><svg class="ig-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@adventurewithhimanshu on Instagram</a>
       </div>
     </div>
   </div>
@@ -860,7 +891,7 @@ textarea.inp{min-height:96px;resize:vertical}
 
     <div class="f-cols">
       <div class="f-about">
-        <a href="#top" class="brand f-brand" aria-label="Back to top">
+        <a href="/" class="brand f-brand" data-home aria-label="Adventures with Himanshu, home">
           <img class="seal seal-lg" src="brand/logo-192.png" width="96" height="96" alt="" loading="lazy">
           <span class="brand-word">Adventures with Himanshu<small>Trips across North-East India</small></span>
         </a>
@@ -881,7 +912,7 @@ textarea.inp{min-height:96px;resize:vertical}
           <li><a href="mailto:adventureswithhimanshu@gmail.com">adventureswithhimanshu@gmail.com</a></li>
           <li><a href="tel:+919101365504">+91 91013 65504</a></li>
           <li><a href="#" data-wa="Hello Himanshu! I'd like to plan a trip.">WhatsApp Himanshu</a></li>
-          <li><a href="https://www.instagram.com/adventurewithhimanshu/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a class="ig-link" href="https://www.instagram.com/adventurewithhimanshu/" target="_blank" rel="noopener"><svg class="ig-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a></li>
         </ul>
       </div>
       <div>
@@ -993,9 +1024,9 @@ const MONTH_NAMES = ["January","February","March","April","May","June","July","A
 
 const SLIDES = [
   {img:"images/p-double-decker-sun.jpg", name:"Double-decker root bridge", place:"Nongriat, Meghalaya", o:"50% 55%", dx:"-1.5%", dy:"-1%"},
-  {img:"images/p-blue-pool.jpg", name:"Swimming the blue pools", place:"East Khasi Hills, Meghalaya", o:"50% 60%", dx:"1%", dy:"-1%"},
   {img:"images/t-sela-lake.jpg", name:"Sela Lake", place:"Below Sela Pass, Arunachal", o:"50% 55%", dx:"1.5%", dy:"0"},
   {img:"images/m-vantawng.jpg", name:"Vantawng Falls", place:"Thenzawl, Mizoram", o:"50% 40%", dx:"-1%", dy:"1%"},
+  {img:"images/p-blue-pool.jpg", name:"Swimming the blue pools", place:"East Khasi Hills, Meghalaya", o:"50% 60%", dx:"1%", dy:"-1%"},
   {img:"images/t-bumla-group.jpg", name:"Above the snowline", place:"Tawang, Arunachal Pradesh", o:"50% 62%", dx:"1%", dy:"-1%"}
 ];
 
@@ -1255,8 +1286,8 @@ const priceHTML = t => t.price
 const routeHTML = r => `<p class="route mono">${r.map(esc).join(' <span aria-hidden="true">→</span> ')}</p>`;
 
 $("#trips").innerHTML = TRIPS.map(t => `
-  <article class="trip rise">
-    <div class="trip-media img-settle" data-trip="${t.id}" role="button" tabindex="0" aria-label="View day-by-day itinerary for ${esc(t.title)}">
+  <article class="trip" data-region="${t.region}">
+    <div class="trip-media" data-trip="${t.id}" role="button" tabindex="0" aria-label="View day-by-day itinerary for ${esc(t.title)}">
       <img src="${t.img}" alt="${esc(t.imgAlt)}" loading="lazy">
       <div class="trip-peek">
         <div class="trip-price">${t.price ? priceHTML(t) : ""}</div>
@@ -1267,28 +1298,42 @@ $("#trips").innerHTML = TRIPS.map(t => `
       <span class="trip-region">${t.region}</span>
       <h3><a href="#" data-trip="${t.id}">${t.title}</a></h3>
       <p class="trip-kicker">${t.kicker}</p>
-      ${routeHTML(t.route)}
     </div>
     <dl class="meta" style="margin:0">
       <div><dt>Duration</dt><dd>${t.duration}</dd></div>
       <div><dt>Difficulty</dt><dd>${t.diffLabel}</dd></div>
       <div><dt>Best time</dt><dd>${bestTime(t.months)}</dd></div>
     </dl>
-    <ul class="hl">${t.highlights.map(h=>`<li>${h}</li>`).join("")}</ul>
     <div class="trip-actions">
-      <button class="btn btn-line btn-sm" type="button" data-trip="${t.id}">Day-by-day itinerary ${ARROW}</button>
-      <button class="link-arrow" type="button" data-open-modal="${t.id}">Enquire ${ARROW}</button>
+      <button class="btn btn-line" type="button" data-trip="${t.id}">View itinerary</button>
+      <button class="btn btn-gold" type="button" data-open-modal="${t.id}">Enquire ${ARROW}</button>
     </div>
-  </article>`).join("") + `
-  <div class="custom-card rise">
-    <div>
-      <h3>Travelling with your own group?</h3>
-      <p>Any of these trips can run just for you, whether you're a couple, a family, a group of friends or a team from work. Or tell Himanshu what you have in mind and he'll shape a route around it.</p>
-    </div>
-    <div class="btns">
-      <button class="btn btn-gold" type="button" data-open-modal="custom">Plan a private trip ${ARROW}</button>
-    </div>
-  </div>`;
+  </article>`).join("");
+
+/* Trip carousel: state filter, arrows, swipe (native scroll-snap) */
+(function tripCarousel(){
+  const track = $("#trips"), f = $("#tFilter"), prev = $("#tPrev"), next = $("#tNext");
+  const cards = $$(".trip", track);
+  const states = ["All", ...new Set(TRIPS.map(t => t.region))];
+  f.innerHTML = states.map((r,i)=>`<button type="button" aria-pressed="${i===0}" data-r="${r}">${r}<span class="mono">${r==="All" ? TRIPS.length : TRIPS.filter(t=>t.region===r).length}</span></button>`).join("");
+  const step = () => { const c = cards.find(c => !c.hidden); return c ? c.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0) : track.clientWidth; };
+  const update = () => {
+    prev.disabled = track.scrollLeft < 4;
+    next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
+    $(".t-nav").hidden = prev.disabled && next.disabled;
+  };
+  f.addEventListener("click", e => {
+    const b = e.target.closest("button"); if(!b) return;
+    $$("button", f).forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    cards.forEach(c => c.hidden = b.dataset.r !== "All" && c.dataset.region !== b.dataset.r);
+    track.scrollTo({left:0, behavior:"auto"}); update();
+  });
+  prev.addEventListener("click", () => track.scrollBy({left:-step(), behavior: reduce ? "auto" : "smooth"}));
+  next.addEventListener("click", () => track.scrollBy({left: step(), behavior: reduce ? "auto" : "smooth"}));
+  track.addEventListener("scroll", update, {passive:true});
+  addEventListener("resize", update);
+  update();
+})();
 
 /* =====================================================================
    ITINERARY DRAWER
@@ -1556,6 +1601,8 @@ const LEGAL = {
    GLOBAL EVENTS
    ===================================================================== */
 document.addEventListener("click", e => {
+  const home = e.target.closest("[data-home]");
+  if(home && location.pathname === "/"){ e.preventDefault(); setMenu(false); scrollTo({top:0, behavior: reduce ? "auto" : "smooth"}); history.replaceState(null, "", "/"); return; }
   const om = e.target.closest("[data-open-modal]");
   if(om){ e.preventDefault(); lastFocus = om; openModal(om.dataset.openModal || null); return; }
   const tr = e.target.closest("[data-trip]");
