@@ -23,7 +23,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TravelAgency", "name": "Adventures with Himanshu", "legalName": "ADVENTURES WITH HIMANSHU", "url": "https://adventureswithhimanshu.in/", "logo": "https://adventureswithhimanshu.in/brand/logo-512.png", "image": "https://adventureswithhimanshu.in/images/t-sela-lake.jpg", "email": "adventureswithhimanshu@gmail.com", "telephone": "+91-9101365504", "taxID": "19ACCFA7224N1Z4", "areaServed": ["Meghalaya", "Arunachal Pradesh", "Mizoram", "Assam"], "sameAs": ["https://www.instagram.com/adventurewithhimanshu/"], "description": "Group trips and private journeys across Meghalaya, Arunachal Pradesh and Mizoram, planned person to person by Himanshu Pandey."}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap">
 <style>
 /* Dark ground, full-bleed photography, gold as a thin accent. */
 :root{
@@ -34,7 +34,7 @@
   --glass:rgba(15,20,25,.55); --scrim:rgba(8,11,14,.72);
   --f-display:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
   --f-body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --f-mono:var(--f-body);
   --gutter:clamp(16px,4vw,48px); --max:1280px;
   --ease:cubic-bezier(.22,.61,.36,1); --ease-out:cubic-bezier(.16,1,.3,1);
   color-scheme:dark;
@@ -686,6 +686,15 @@ textarea.inp{min-height:96px;resize:vertical}
   .fade-in{opacity:1}
   .strip-track{animation:none}
 }
+/* Plain labels and buttons: sentence case, no wide tracking */
+.btn,.link-arrow,.m-back{text-transform:none;letter-spacing:.01em;font-size:14.5px}
+.trip-region,.meta dt,.season-l,.f-cols h5,.inc h5,.fares h5,.d-facts dt,.summary dt,.f-role,.m-step h4 small,.trip-price small,.chip{text-transform:none;letter-spacing:0;font-size:13px}
+.meta dt,.d-facts dt,.summary dt,.f-role,.trip-price small{color:var(--faint)}
+.f-cols h5{color:var(--mute);font-weight:600}
+.mono{letter-spacing:0}
+.sec.alt::before,.sec.rule::before,.fab::before{display:none}
+.steps::after{display:none}
+.trip-price small+small{margin:6px 0 0}
 </style>
 </head>
 <body>
@@ -724,7 +733,7 @@ textarea.inp{min-height:96px;resize:vertical}
   <div class="slides" id="slides"></div>
   <div class="wrap hero-body">
     <div class="hero-kicker fade-in" style="--d:.15s">
-      <span class="chip"><i></i><span id="season">Season 2026–27 now open</span></span>
+      <span class="chip"><span id="season">Season 2026–27 now open</span></span>
     </div>
     <h1 class="fade-in" style="--d:.3s">Small-group trips to Meghalaya, Arunachal and Mizoram</h1>
     <p class="hero-sub fade-in" style="--d:.5s">Group departures and private trips, planned by Himanshu Pandey. You deal with him directly, from your first message to the drive home.</p>
@@ -812,12 +821,12 @@ textarea.inp{min-height:96px;resize:vertical}
     <div class="faq">
       <details open><summary>How do I get to the North-East?<i></i></summary><div class="ans"><p>Most trips start in <b>Guwahati (GAU)</b>, with direct flights from Delhi, Mumbai, Bengaluru, Kolkata, Chennai and Hyderabad. The Anini trip starts in <b>Dibrugarh (DIB)</b>, and the Mizoram trip in <b>Aizawl (AJL)</b>.</p></div></details>
       <details><summary>Do I need a permit?<i></i></summary><div class="ans"><p>Indian citizens need an <b>Inner Line Permit</b> for Arunachal Pradesh and Mizoram. ILPs are included on both Arunachal trips, and we guide you through Mizoram's. Foreign nationals need a <b>Protected Area Permit</b> for Arunachal and must register on arrival in Mizoram. Rules change, so we confirm everything when you book. Meghalaya needs no permit.</p></div></details>
-      <details><summary>Is the North-East safe to travel?<i></i></summary><div class="ans"><p>Yes. Meghalaya, Tawang, the Dibang Valley and Mizoram are calm and used to visitors. Himanshu works with stays and drivers he knows, and you can reach him directly throughout the trip.</p></div></details>
+      <details><summary>Is the North-East safe to visit?<i></i></summary><div class="ans"><p>Yes. Meghalaya, Tawang, the Dibang Valley and Mizoram are calm and used to visitors. Himanshu works with stays and drivers he knows, and you can reach him directly throughout the trip.</p></div></details>
       <details><summary>How fit do I need to be?<i></i></summary><div class="ans"><p>Each trip has a difficulty rating out of 5. The Mizoram and Anini trips are <b>2</b>: mostly drives with short walks. The Meghalaya and Tawang trips are <b>3</b>: Meghalaya has steep stairs down to the root bridges (about 3,500 steps to Nongriat), and Tawang goes above 4,000 m, where the air is thin. Ask Himanshu if you're unsure which suits you.</p></div></details>
-      <details><summary>When is the best time to go?<i></i></summary><div class="ans"><p>October to April suits most routes. Monsoon (June–September) is spectacular for Meghalaya's waterfalls but slows mountain roads. <b>Kaziranga (the Day 8 add-on) is closed from May to October.</b> Each trip card shows its best months.</p></div></details>
+      <details><summary>When is the best time to go?<i></i></summary><div class="ans"><p>October to April suits most routes; Tawang is best from March to June and September to November. Monsoon (June–September) is spectacular for Meghalaya's waterfalls but slows mountain roads. <b>Kaziranga (the Day 8 add-on) is closed from May to October.</b> Each trip shows its best time to go.</p></div></details>
       <details><summary>Why do some trips say "price on request"?<i></i></summary><div class="ans"><p>Fares depend on group size, dates and vehicle. Send an enquiry and Himanshu replies with an exact quote, usually within a day.</p></div></details>
-      <details><summary>Do you run private trips?<i></i></summary><div class="ans"><p>Yes. Couples, families and friend groups can book any route as a private departure on their own dates. Corporate offsites are welcome too.</p></div></details>
-      <details><summary>How do I pay and confirm my booking?<i></i></summary><div class="ans"><p>Pay a <b>30% advance</b> to confirm your seats; the balance is due just before the trip starts. We accept <b>UPI and bank transfer only</b>, and every payment comes with a GST invoice from ADVENTURES WITH HIMANSHU.</p></div></details>
+      <details><summary>Do you run private trips?<i></i></summary><div class="ans"><p>Yes. Couples, families and friend groups can book any route as a private departure on their own dates. Company trips are welcome too.</p></div></details>
+      <details><summary>How do I pay and confirm my booking?<i></i></summary><div class="ans"><p>Pay a <b>30% advance</b> to confirm your seats; the balance is due just before the trip starts. We accept <b>UPI and bank transfer only</b>, and every payment comes with a GST invoice.</p></div></details>
       <details><summary>What is the cancellation policy?<i></i></summary><div class="ans"><p>Please send cancellations in writing on WhatsApp or email. Refunds depend on how close to departure you cancel:</p>
         <table><tbody>
           <tr><td>30 days or more before departure</td><td>Full advance, minus ₹2,000 per person processing fee</td></tr>
@@ -850,11 +859,6 @@ textarea.inp{min-height:96px;resize:vertical}
 <!-- ============ FOOTER ============ -->
 <footer id="contact">
   <div class="wrap">
-    <div class="ig-head">
-      <h3>Follow @adventurewithhimanshu</h3>
-      <a class="link-arrow" href="https://www.instagram.com/adventurewithhimanshu/" target="_blank" rel="noopener">Open Instagram <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
-    </div>
-    <div class="ig" id="ig"></div>
 
     <div class="f-cols">
       <div class="f-about">
@@ -876,8 +880,8 @@ textarea.inp{min-height:96px;resize:vertical}
       <div>
         <h5>Contact</h5>
         <ul>
-          <li class="contact-row"><a href="mailto:adventureswithhimanshu@gmail.com">adventureswithhimanshu@gmail.com</a><button class="copy" type="button" data-copy="adventureswithhimanshu@gmail.com">Copy</button></li>
-          <li class="contact-row"><a href="tel:+919101365504">+91 91013 65504</a><button class="copy" type="button" data-copy="+91 9101365504">Copy</button></li>
+          <li><a href="mailto:adventureswithhimanshu@gmail.com">adventureswithhimanshu@gmail.com</a></li>
+          <li><a href="tel:+919101365504">+91 91013 65504</a></li>
           <li><a href="#" data-wa="Hello Himanshu! I'd like to plan a trip.">WhatsApp Himanshu</a></li>
           <li><a href="https://www.instagram.com/adventurewithhimanshu/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
@@ -987,7 +991,6 @@ textarea.inp{min-height:96px;resize:vertical}
    ===================================================================== */
 const WA_NUMBER = "919101365504";
 const EMAIL = "adventureswithhimanshu@gmail.com";
-const MONTHS = ["J","F","M","A","M","J","J","A","S","O","N","D"];
 const MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 const SLIDES = [
@@ -1028,17 +1031,17 @@ const TRIPS = [
   },
   {
     id:"offbeat", region:"Meghalaya", title:"Experience Offbeat Meghalaya",
-    kicker:"The Meghalaya few travellers see: caves, hidden falls, the Umngot and 17 root bridges in Nongblai.",
+    kicker:"Caves, waterfalls, the Umngot river and the 17 root bridges of Nongblai, away from the usual route.",
     img:"images/p-cave.jpg", imgAlt:"Explorers in helmets inside a limestone cave",
     duration:"6N / 7D", diff:3, diffLabel:"Moderate", price:null,
     months:[9,10,11,0,1,2,3,4], start:"Guwahati", end:"Guwahati", maxAlt:"≈ 1,500 m", permit:"Not required", stays:"Hostels, homestays and a campsite",
     route:["Guwahati","Shillong","Khliehriat","Amlarem","Pynursla","Nongblai","Shillong","Guwahati"],
-    highlights:["Caving in Krem Chympe","Phe Phe and Krangsuri waterfalls","The 17 living root bridges of Nongblai"],
+    highlights:["Caving in Krem Chympe","Phe Phe and Krang Suri waterfalls","The 17 living root bridges of Nongblai"],
     inc:["Tempo traveller for all transfers","12 meals: 6 breakfasts and 6 dinners","6 nights' stay: hostels, homestays and a campsite","Permits"],
     itinerary:[
       {place:"Guwahati → Shillong", d:"Pickup in Guwahati and drive up to Shillong."},
       {place:"Khliehriat & Krem Chympe", d:"Into the Jaintia Hills to explore the passages of Krem Chympe cave."},
-      {place:"Amlarem waterfalls", d:"Phe Phe Falls and the blue pool of Krangsuri."},
+      {place:"Amlarem waterfalls", d:"Phe Phe Falls and the blue pool of Krang Suri."},
       {place:"Shnongpdeng → Pynursla", d:"Boating on the glass-clear Umngot at Shnongpdeng, then up to Pynursla."},
       {place:"Nongblai root bridges", d:"Trek to Nongblai and its 17 living root bridges. Camp under the stars."},
       {place:"Nongblai → Shillong", d:"Hike out and drive back to Shillong."},
@@ -1047,12 +1050,12 @@ const TRIPS = [
   },
   {
     id:"exquisite", region:"Meghalaya", title:"Exquisite Meghalaya Group Trip",
-    kicker:"Our signature group departure: river camping at Dawki, an exclusive bamboo bridge trek and the double-decker root bridge.",
+    kicker:"Our group departure: river camping at Dawki, the Mawryngkhang bamboo bridge trek and the double-decker root bridge.",
     img:"images/p-group-bridge.jpg", imgAlt:"A group of travellers crossing a living root bridge over a rocky stream",
-    duration:"7 days (+ optional Day 8)", diff:3, diffLabel:"Moderate", price:"₹18,999",
+    duration:"6N / 7D (+ optional Day 8)", diff:3, diffLabel:"Moderate", price:"₹18,999",
     priceNote:"per person + taxes", months:[9,10,11,0,1,2,3,4], start:"Guwahati", end:"Guwahati", maxAlt:"≈ 1,500 m", permit:"Not required", stays:"Cottages and tents, triple or four sharing",
     route:["Guwahati","Shillong","Krang Suri","Dawki","Mawryngkhang","Nongriat","Shillong","Guwahati"],
-    highlights:["Riverside camping and boating at Dawki","Mawryngkhang Bamboo Bridge trek (exclusive)","Double-decker root bridge and Rainbow Falls"],
+    highlights:["Riverside camping and boating at Dawki","Mawryngkhang bamboo bridge trek","Double-decker root bridge and Rainbow Falls"],
     fares:[
       ["Base price","₹18,999 per person + taxes and fees, triple or four sharing in cottages or tents"],
       ["Twin sharing","+ ₹7,350 per person + 5% GST"],
@@ -1065,7 +1068,7 @@ const TRIPS = [
       {place:"Guwahati → Shillong", d:"Meet the group in Guwahati and drive up to Shillong."},
       {place:"Krang Suri → Dawki camp", d:"Swim at the blue pool of Krang Suri Waterfall, then set up camp on the riverbank at Dawki."},
       {place:"Dawki boating", d:"Boating on the clear Umngot river, with the riverbed visible beneath the boat."},
-      {place:"Mawryngkhang Bamboo Bridge", d:"Our exclusive trek along bamboo walkways lashed to the cliffs around the Mawryngkhang rock."},
+      {place:"Mawryngkhang Bamboo Bridge", d:"A trek along bamboo walkways tied to the cliffs around the Mawryngkhang rock."},
       {place:"Double-decker root bridge", d:"Descend to Nongriat for the double-decker root bridge and a swim at Rainbow Falls."},
       {place:"Shillong", d:"Back to Shillong to explore the markets and cafés."},
       {place:"Shillong → Guwahati", d:"Drive down to Guwahati. Or stay on for the optional Day 8 in Kaziranga."}
@@ -1073,7 +1076,7 @@ const TRIPS = [
   },
   {
     id:"tawang", region:"Arunachal Pradesh", title:"Experience Tawang",
-    kicker:"Over Sela Pass to Tawang Monastery, Madhuri Lake and the Bumla Pass, returning via Sangti Valley.",
+    kicker:"Over Sela Pass to Tawang Monastery, Madhuri Lake and Bumla Pass, returning via Sangti Valley.",
     img:"images/t-sela-lake.jpg", imgAlt:"A high-altitude lake below rocky peaks near Sela Pass",
     duration:"6N / 7D", diff:3, diffLabel:"Moderate, high altitude", price:null,
     months:[2,3,4,5,8,9,10], start:"Guwahati", end:"Guwahati", maxAlt:"≈ 4,600 m", permit:"Included (ILP)", stays:"6 nights' accommodation",
@@ -1092,12 +1095,12 @@ const TRIPS = [
   },
   {
     id:"anini", region:"Arunachal Pradesh", title:"Experience Anini",
-    kicker:"A frontier journey into the Dibang Valley: Mayodia Pass, Mishmi villages and Mipi near the edge of the map.",
+    kicker:"Over Mayodia Pass into the Dibang Valley, with Mishmi villages and the frontier village of Mipi.",
     img:"images/a-river-valley.jpg", imgAlt:"A traveller standing on a rock in a clear river running through a forested Arunachal valley",
     duration:"5N / 6D", diff:2, diffLabel:"Easy–moderate", price:null,
     months:[9,10,11,0,1,2,3], start:"Dibrugarh", end:"Dibrugarh", maxAlt:"≈ 2,650 m", permit:"Included (ILP)", stays:"5 nights' accommodation",
     route:["Dibrugarh","Roing","Anini","Acheso","Mipi","Roing","Dibrugarh"],
-    highlights:["Snow views at Mayodia Pass","Dri and Mathun valleys of the Dibang","Mishmi village visits and Mipi"],
+    highlights:["Snow views at Mayodia Pass","The Dri and Mathun valleys","Mishmi village visits and Mipi"],
     inc:["6-seater SUV for all transfers","10 meals: 5 breakfasts and 5 dinners","5 nights' accommodation","Inner Line Permits (ILP)"],
     itinerary:[
       {place:"Dibrugarh → Roing", d:"Pickup in Dibrugarh, cross the Brahmaputra plains and reach Roing at the foot of the hills."},
@@ -1110,7 +1113,7 @@ const TRIPS = [
   },
   {
     id:"mizoram", region:"Mizoram", title:"Experience Mizoram",
-    kicker:"Hill towns, ridge-top hikes and two of the North-East's great waterfalls, in one of India's least-visited states.",
+    kicker:"Aizawl, the Reiek ridge, the Champhai border region, and the Tuirihiau and Vantawng waterfalls.",
     img:"images/m-vantawng.jpg", imgAlt:"A tall waterfall pouring through mist in the Mizoram forest",
     duration:"6N / 7D", diff:2, diffLabel:"Easy–moderate", price:null,
     months:[9,10,11,0,1,2,3], start:"Aizawl", end:"Aizawl", maxAlt:"≈ 1,700 m", permit:"ILP required, we guide you", stays:"6 nights, partnered stays",
@@ -1131,45 +1134,44 @@ const TRIPS = [
 
 /* Real trip photos. Captions describe what is in each photo. */
 const GALLERY = [
-  {img:"p-double-decker-sun", r:"Meghalaya", cap:"Morning light at the double-decker root bridge", big:true},
-  {img:"t-locals", r:"Arunachal", cap:"Making friends in Tawang", tall:true},
+  {img:"p-double-decker-sun", r:"Meghalaya", cap:"The double-decker root bridge, Nongriat", big:true},
+  {img:"t-locals", r:"Arunachal", cap:"With locals in Tawang", tall:true},
   {img:"m-border-bridge", r:"Mizoram", cap:"The India–Myanmar border bridge at Zokhawthar", tall:true},
-  {img:"p-weisawdong", r:"Meghalaya", cap:"Wei Sawdong's turquoise tiers"},
+  {img:"p-weisawdong", r:"Meghalaya", cap:"Wei Sawdong Falls"},
   {img:"t-nuranang", r:"Arunachal", cap:"Nuranang Falls on the road to Tawang", tall:true},
-  {img:"m-aizawl-night", r:"Mizoram", cap:"Aizawl's lights from the ridge"},
-  {img:"p-blue-pool", r:"Meghalaya", cap:"Swimming in the blue pools", tall:true},
+  {img:"m-aizawl-night", r:"Mizoram", cap:"Aizawl at night"},
+  {img:"p-blue-pool", r:"Meghalaya", cap:"Swimming in a blue pool", tall:true},
   {img:"t-bridge-flags", r:"Arunachal", cap:"A prayer-flag bridge in the Tawang valley", tall:true},
-  {img:"m-waterfall-swim", r:"Mizoram", cap:"A forest waterfall stop", tall:true},
-  {img:"p-group-bridge", r:"Meghalaya", cap:"Crossing a root bridge together"},
+  {img:"m-waterfall-swim", r:"Mizoram", cap:"A forest waterfall", tall:true},
+  {img:"p-group-bridge", r:"Meghalaya", cap:"A group crossing a root bridge"},
   {img:"t-monastery-crew", r:"Arunachal", cap:"With the crew at Thupsung Dhargye Ling, Dirang"},
   {img:"m-bamboo-lodge", r:"Mizoram", cap:"Inside a bamboo lodge", tall:true},
   {img:"p-root-ladder", r:"Meghalaya", cap:"Climbing a living root ladder", tall:true},
-  {img:"t-river", r:"Arunachal", cap:"A riverside pause in the mountains", tall:true},
+  {img:"t-river", r:"Arunachal", cap:"By a mountain river", tall:true},
   {img:"m-champhai-sign", r:"Mizoram", cap:"On the road to Champhai", tall:true},
-  {img:"p-rainbow-falls-wide", r:"Meghalaya", cap:"Rainbow Falls living up to its name"},
-  {img:"m-i-love-mizoram", r:"Mizoram", cap:"Welcome to Mizoram"},
-  {img:"p-gorge", r:"Meghalaya", cap:"Looking down into a Khasi Hills gorge", tall:true},
+  {img:"p-rainbow-falls-wide", r:"Meghalaya", cap:"Rainbow Falls"},
+  {img:"m-i-love-mizoram", r:"Mizoram", cap:"The Mizoram welcome sign"},
+  {img:"p-gorge", r:"Meghalaya", cap:"A gorge in the Khasi Hills", tall:true},
   {img:"m-lake-walk", r:"Mizoram", cap:"A lakeside walkway in the hills"},
-  {img:"p-rootbridge-dusk", r:"Meghalaya", cap:"A root bridge deep in the forest"},
-  {img:"m-forest-trail", r:"Mizoram", cap:"The forest trail to the falls", tall:true},
-  {img:"p-steel-bridge", r:"Meghalaya", cap:"Suspension bridge below the cliffs"},
+  {img:"p-rootbridge-dusk", r:"Meghalaya", cap:"A root bridge in the forest"},
+  {img:"m-forest-trail", r:"Mizoram", cap:"The trail to the falls", tall:true},
+  {img:"p-steel-bridge", r:"Meghalaya", cap:"A suspension bridge below the cliffs"},
   {img:"p-jungle-trail", r:"Meghalaya", cap:"On the jungle trail"},
-  {img:"p-waterfall-rest", r:"Meghalaya", cap:"A quiet pause by the falls"},
-  {img:"a-river-valley", r:"Arunachal", cap:"A clear river through a wide Arunachal valley", big:true},
-  {img:"a-snow-pass", r:"Arunachal", cap:"Fresh snow on a mountain pass road", tall:true},
+  {img:"p-waterfall-rest", r:"Meghalaya", cap:"Resting by a waterfall"},
+  {img:"a-river-valley", r:"Arunachal", cap:"A river valley in Arunachal", big:true},
+  {img:"a-snow-pass", r:"Arunachal", cap:"Snow on a mountain pass road", tall:true},
   {img:"m-tropic-cancer", r:"Mizoram", cap:"Crossing the Tropic of Cancer in Khawzawl district"},
-  {img:"a-icicles", r:"Arunachal", cap:"Icicles and snow at a pass-side café", tall:true},
+  {img:"a-icicles", r:"Arunachal", cap:"Icicles at a café on the pass", tall:true},
   {img:"m-sialsuk", r:"Mizoram", cap:"Mist rolling over Sialsuk"},
   {img:"a-flag-bridge-camp", r:"Arunachal", cap:"A prayer-flag bridge to a riverside camp", tall:true},
   {img:"m-market", r:"Mizoram", cap:"A morning vegetable market in Mizoram", tall:true},
-  {img:"p-window-girl", r:"Meghalaya", cap:"A curious face at the window", tall:true},
-  {img:"m-hockey", r:"Mizoram", cap:"Hockey practice on a hill-town pitch", tall:true},
-  {img:"p-steel-bridge-2", r:"Meghalaya", cap:"Into the forest over the river", tall:true},
+  {img:"p-window-girl", r:"Meghalaya", cap:"A child at a window", tall:true},
+  {img:"m-hockey", r:"Mizoram", cap:"Hockey practice in a hill town", tall:true},
+  {img:"p-steel-bridge-2", r:"Meghalaya", cap:"A bridge into the forest", tall:true},
   {img:"p-rootbridge-waterfall", r:"Meghalaya", cap:"A root bridge beside a forest waterfall", tall:true},
-  {img:"p-rootsteps", r:"Meghalaya", cap:"Root steps on the way down", tall:true}
+  {img:"p-rootsteps", r:"Meghalaya", cap:"Root steps on the trail", tall:true}
 ];
 
-const IG = ["a-river-valley","t-sela-lake","m-vantawng","p-double-decker","a-snow-pass","p-cave"];
 
 /* =====================================================================
    HELPERS
@@ -1239,11 +1241,19 @@ $$("#mobileMenu a").forEach(a => a.addEventListener("click", () => setMenu(false
 /* =====================================================================
    EXPEDITIONS
    ===================================================================== */
-const pips = n => `<span class="pips" aria-label="Difficulty ${n} of 5">${[1,2,3,4,5].map(i=>`<i class="${i<=n?"f":""}"></i>`).join("")}</span>`;
-const season = m => `<div class="season" aria-label="Best months: ${m.map(i=>MONTH_NAMES[i]).join(", ")}">${MONTHS.map((l,i)=>`<i class="${m.includes(i)?"f":""}">${l}</i>`).join("")}</div>`;
+/* [9,10,11,0,1,2,3,4] -> "Oct–May"; [2,3,4,5,8,9,10] -> "Mar–Jun, Sep–Nov" */
+const bestTime = m => {
+  const has = i => m.includes((i + 12) % 12), short = i => MONTH_NAMES[i].slice(0,3), runs = [];
+  for(let i = 0; i < 12; i++){
+    if(!has(i) || has(i-1)) continue;
+    let j = i; while(has(j+1) && (j+1) % 12 !== i) j++;
+    runs.push(j === i ? short(i) : short(i) + "–" + short(j % 12));
+  }
+  return runs.join(", ");
+};
 const priceHTML = t => t.price
-  ? `<small>From, ${t.priceNote || "per person"}</small>${t.price}`
-  : `<small>Fares</small>On request`;
+  ? `<small>From</small>${t.price}<small>${t.priceNote || "per person"}</small>`
+  : `<small>Price</small>On request`;
 const routeHTML = r => `<p class="route mono">${r.map(esc).join(' <span aria-hidden="true">→</span> ')}</p>`;
 
 $("#trips").innerHTML = TRIPS.map(t => `
@@ -1251,7 +1261,7 @@ $("#trips").innerHTML = TRIPS.map(t => `
     <div class="trip-media img-settle" data-trip="${t.id}" role="button" tabindex="0" aria-label="View day-by-day itinerary for ${esc(t.title)}">
       <img src="${t.img}" alt="${esc(t.imgAlt)}" loading="lazy">
       <div class="trip-peek">
-        <div class="trip-price">${priceHTML(t)}</div>
+        <div class="trip-price">${t.price ? priceHTML(t) : ""}</div>
         <span class="trip-open" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13L13 3M5 3h8v8"/></svg></span>
       </div>
     </div>
@@ -1262,11 +1272,10 @@ $("#trips").innerHTML = TRIPS.map(t => `
       ${routeHTML(t.route)}
     </div>
     <dl class="meta" style="margin:0">
-      <div><dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Duration</dt><dd>${t.duration}</dd></div>
-      <div><dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4v-6H4zM10 20h4V9h-4zM16 20h4V4h-4z"/></svg>Difficulty</dt><dd>${pips(t.diff)} ${t.diffLabel}</dd></div>
-      <div><dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6.5-11 4 6 2.5-4L21 20z"/></svg>Highest point</dt><dd>${t.maxAlt}</dd></div>
+      <div><dt>Duration</dt><dd>${t.duration}</dd></div>
+      <div><dt>Difficulty</dt><dd>${t.diffLabel}</dd></div>
+      <div><dt>Best time</dt><dd>${bestTime(t.months)}</dd></div>
     </dl>
-    <div class="t-season"><div class="season-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Best months</div>${season(t.months)}</div>
     <ul class="hl">${t.highlights.map(h=>`<li>${h}</li>`).join("")}</ul>
     <div class="trip-actions">
       <button class="btn btn-line btn-sm" type="button" data-trip="${t.id}">Day-by-day itinerary ${ARROW}</button>
@@ -1305,14 +1314,13 @@ function openDrawer(id){
       </div>
       <dl class="d-facts" style="margin:0">
         <div><dt>Duration</dt><dd>${t.duration}</dd></div>
-        <div><dt>Difficulty</dt><dd>${pips(t.diff)}</dd></div>
-        <div><dt>Price</dt><dd>${t.price ? t.price + " pp" : "On request"}</dd></div>
+        <div><dt>Difficulty</dt><dd>${t.diffLabel}</dd></div>
+        <div><dt>Best time</dt><dd>${bestTime(t.months)}</dd></div>
         <div><dt>Start / end</dt><dd>${t.start} / ${t.end}</dd></div>
         <div><dt>Permits</dt><dd>${t.permit}</dd></div>
         <div><dt>Stays</dt><dd>${t.stays}</dd></div>
       </dl>
       ${t.fares ? `<div class="fares"><h5>Fares</h5><dl>${t.fares.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl></div>` : ""}
-      <div><div class="season-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Best months</div>${season(t.months)}</div>
       <div>
         <p class="small-note" style="margin-bottom:6px">Day plan is a guide. The final plan comes with your quote.</p>
         <ol class="days">
@@ -1393,11 +1401,6 @@ function closeDrawer(){
   btn.addEventListener("click", () => { btn.hidden = true; v.controls = true; v.play().catch(()=>{ btn.hidden = false; }); });
   v.addEventListener("play", () => { btn.hidden = true; });
 })();
-
-/* =====================================================================
-   INSTAGRAM GRID
-   ===================================================================== */
-$("#ig").innerHTML = IG.map(n=>`<a href="https://www.instagram.com/adventurewithhimanshu/" target="_blank" rel="noopener" aria-label="Open Instagram"><img src="images/${n}.jpg" alt="" loading="lazy"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#fff"/></svg></a>`).join("");
 
 /* =====================================================================
    ENQUIRY MODAL
